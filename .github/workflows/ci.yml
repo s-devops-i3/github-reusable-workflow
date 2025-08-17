@@ -1,18 +1,22 @@
-name: Continuous Integration -Reusable
+name: Continuous Integration - Resuable
 on: [workflow_call]
 jobs:
-  job1:
+  CI_Steps:
     runs-on: ubuntu-latest
     steps:
       - name: Code Checkout
         uses: actions/checkout@v4
       - run: echo OK
-        name: Code BUILD
+        name: Code Lint
+      #       - run: echo OK
+      #         name: Code Build
+      - run: npm install
+        name: Install NodeJS modules
+      - run: npm run test:unit
+        name: Code Unit Tests
+      - run: npm run test:integration
+        name: Code Integration Tests
       - run: echo OK
-        name: Code TEST
-      - run: echo OK
-        name: Code REVIEW
+        name: Code Review
       - run: echo OK
         name: Release Software
-
-
