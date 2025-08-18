@@ -15,7 +15,7 @@ jobs:
       - run: npm run test:unit
         name: Code Unit Tests
       - run: npm run test:integration
-        name: Code Integration Tests
+        name: Code Integration Test
       - run: echo OK
         name: Code Review
       - run: echo OK
